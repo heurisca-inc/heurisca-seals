@@ -32,3 +32,26 @@ From 2026-09-02 onward, the content hashed into each leaf fingerprint is exactly
 serialised with sorted keys and no incidental whitespace, then hashed together
 with that prediction's 32-byte random salt. `verify.py` implements this and
 nothing else.
+
+## 2026-09-01 — development database reset
+
+The development database was dropped and rebuilt on 2026-09-01, by operator
+decision. It had accumulated bring-up artifacts, test fixtures, and the first
+real predictions in one place, and its seal dates had begun colliding with real
+ones.
+
+**This repository was not touched.** No commit was rewritten, no root was
+removed, and the 2026-09-01 root above still stands exactly as published. That
+was a condition of the reset: the seal record's history is the proof layer, and
+it is never rewritten — not to tidy up, and not to correct a mistake.
+
+What the reset means in practice: the salts for the 2026-09-01 root are gone, so
+those leaves were already non-revealable and now permanently are. Nothing else
+changes. No prediction that was ever offered as evidence is affected, because
+none had been.
+
+Alongside the reset, the environments were permanently separated: development
+and CI now run on throwaway databases, and the real ledger lives where test code
+cannot reach it — a production connection is refused outright whenever a test
+process is running. The separation is the actual fix; the reset was only the
+cleanup.
