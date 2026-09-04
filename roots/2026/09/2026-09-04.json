@@ -1,7 +1,7 @@
 {
   "algorithm": "rfc6962-sha256",
   "date": "2026-09-04",
-  "leaf_count": 83,
-  "merkle_root": "70ff67b786935dd8fb48e8bc035386c961fad7333853c6de013fa7b39a390c59",
+  "leaf_count": 81,
+  "merkle_root": "9d1a128f1cb7bdb0580ef5ee0634437b563d7c26504b09c2e2cde2aa91e1a804",
   "prev_root": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 }
